@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+        <script language="javascript">
+            function ocCalljsfun1(aleatString) {
+                window.alert(aleatString);
+            }
+
+            function ocCalljsfun2(aleatString) {
+                window.alert(aleatString);
+                var a = "js给OC的返回";
+                return a;
+            }
+
+            var info1 = {
+                "id":2,
+                "name":'李四'
+            };
+            function test() {
+                XHWebViewBridgeManager.jsCallOC3(info1);
+            }
+            function test1() {
+                var a = "网页回传的参数a";
+                XHWebViewBridgeManager.jsCallOC4(info1,function (respond) {
+                    window.alert(respond);
+                });
+            }
+        </script>
+    </head>
+    
+    <body>
+        <input type="button" style="height: 50px;margin:20px 20px; font-size: 34px;
+"value="JS调用OC方法,无参数" onclick= "XHWebViewBridgeManager.jsCallOC()" />
+        <input type="button" style="height: 50px;margin:20px 20px; font-size: 34px;
+"value="JS调用OC方法，一个参数" onclick= "XHWebViewBridgeManager.jsCallOC1('JS正在调用OC的方法，参数一')" />
+        <input type="button" style="height: 50px;margin:20px 20px; font-size: 34px;
+"value="JS调用OC方法，多个参数" onclick= "XHWebViewBridgeManager.jsCallOC1('JS正在调用OC的方法，参数一','JS正在调用OC的方法，参数二')" />
+        <input type="button" style="height: 50px;margin:20px 20px; font-size: 34px;
+"value="JS调用OC方法，对象参数" onclick= "test()" />
+        <input type="button" style="height: 50px;margin:20px 20px; font-size: 34px;
+"value="JS调用OC方法" onclick= "test1()" />
+    </body>
+</html>
